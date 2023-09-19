@@ -4,13 +4,17 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/coin.png</File>
     <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/lilman.png</File>
     <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/rubikiso.spritefont</File>
+    <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/skranji.spritefont</File>
     <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/yellowbirddown.png</File>
     <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/yellowbirdmid.png</File>
     <File>C:/Users/19139/Source/Repos/CIS580game/lilmangame/lilmangame/Content/yellowbirdup.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

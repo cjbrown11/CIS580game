@@ -34,6 +34,8 @@ namespace LilManGame
 
         private bool flipped;
 
+        private BoundingRectangle bounds;
+
         /// <summary>
         /// The direction of the bird
         /// </summary>
@@ -42,7 +44,16 @@ namespace LilManGame
         /// <summary>
         /// The position of the bird
         /// </summary>
-        public Vector2 Position;
+        public Vector2 position;
+
+        public bool Collected { get; set; } = false;
+
+        public BoundingRectangle Bounds => bounds;
+        public YellowBirdSprite(Vector2 position)
+        {
+            this.position = position;
+            this.bounds = new BoundingRectangle(new Vector2(position.X - 24, position.Y - 24), 48, 48);
+        }
 
         /// <summary>
         /// Loads the bird sprite texture
@@ -59,7 +70,7 @@ namespace LilManGame
         }
 
         /// <summary>
-        /// Updates the bat to fly in a pattern
+        /// Updates the bird to fly in a pattern
         /// </summary>
         /// <param name="gameTime">The game time</param>
         public void Update(GameTime gameTime)
@@ -88,22 +99,25 @@ namespace LilManGame
                 directionTimer -= 2.0;
             }
 
-            //Move the bat
+            //Move the bird
             switch (Direction)
             {
                 case Direction.Up:
-                    Position += new Vector2(0, -1) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    position += new Vector2(0, -1) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case Direction.Down:
-                    Position += new Vector2(0, 1) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    position += new Vector2(0, 1) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case Direction.Left:
-                    Position += new Vector2(-1, 0) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    position += new Vector2(-1, 0) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case Direction.Right:
-                    Position += new Vector2(1, 0) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    position += new Vector2(1, 0) * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
+
+            bounds.X = position.X - 24;
+            bounds.Y = position.Y - 24;
         }
 
         /// <summary>
@@ -113,6 +127,8 @@ namespace LilManGame
         /// <param name="spriteBatch">The sprite batch</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            if (Collected) return;
+
             // Update animation timer
             animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -126,7 +142,7 @@ namespace LilManGame
 
             // Draw the sprite
             SpriteEffects spriteEffects = (flipped) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(birdFrame[animationFrame], Position, null, Color.White, 0, new Vector2(0, 0), 1.5f, spriteEffects, 0);
+            spriteBatch.Draw(birdFrame[animationFrame], position, null, Color.White, 0, new Vector2(0, 0), 1.5f, spriteEffects, 0);
         }
 
     }

@@ -82,3 +82,5 @@ C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\obj\Debug\net6.0-wi
 C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\obj\Debug\net6.0-windows\LilManGame.pdb
 C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\obj\Debug\net6.0-windows\LilManGame.genruntimeconfig.cache
 C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\obj\Debug\net6.0-windows\ref\LilManGame.dll
+C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\coin.xnb
+C:\Users\19139\Source\Repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\skranji.xnb

@@ -15,6 +15,10 @@ namespace LilManGame
 
         private bool flipped;
 
+        private BoundingRectangle bounds = new BoundingRectangle(new Vector2(200-32, 200-32), 64, 64);
+
+        public BoundingRectangle Bounds => bounds;
+
         /// <summary>
         /// Loads the sprite texture using the provided ContentManager
         /// </summary>
@@ -45,6 +49,9 @@ namespace LilManGame
                 position += new Vector2(1, 0);
                 flipped = false;
             }
+            //Update the bounds
+            bounds.X = position.X - 32;
+            bounds.Y = position.Y - 32;
         }
 
         /// <summary>

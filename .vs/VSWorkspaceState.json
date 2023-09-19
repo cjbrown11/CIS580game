@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\lilmangame",
+    "\\lilmangame\\lilmangame"
   ],
-  "SelectedNode": "\\C:\\Users\\19139\\Source\\Repos\\CIS580game",
+  "SelectedNode": "\\lilmangame\\lilmangame\\Game.cs",
   "PreviewInSolutionExplorer": false
 }
