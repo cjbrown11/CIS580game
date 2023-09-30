@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CBXtDojLgHQMvJwW3dIsf1NIuY5gIRXmrb/YpGI10QPcapfcbm3p3b3MFUYAoH5OjOvhjGLOTWf7NRIWbVhHEQ==",
+  "dgSpecHash": "5THyE34Fc+3ELr2+qJXiwVt3//hGdTYE9dtZWDcc0WXaIYwnjrc469aXRxPKQAsLbggcwMsfIf/SxDaEw5a6hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
+  "projectFilePath": "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\19139\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\19139\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

@@ -11,7 +11,7 @@ namespace LilManGame
 
         private Texture2D texture;
 
-        private Vector2 position = new Vector2(200, 200);
+        private Vector2 position = new Vector2(400, 350);
 
         private bool flipped;
 

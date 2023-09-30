@@ -49,9 +49,10 @@ namespace LilManGame
         public bool Collected { get; set; } = false;
 
         public BoundingRectangle Bounds => bounds;
-        public YellowBirdSprite(Vector2 position)
+        public YellowBirdSprite(Vector2 position, Direction direction)
         {
             this.position = position;
+            this.Direction = direction;
             this.bounds = new BoundingRectangle(new Vector2(position.X - 24, position.Y - 24), 48, 48);
         }
 

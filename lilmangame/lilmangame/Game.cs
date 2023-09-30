@@ -1,6 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LilManGame.Screens;
+using LilManGame.StateManagement;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace LilManGame
 {
@@ -8,14 +12,17 @@ namespace LilManGame
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        private readonly ScreenManager _screenManager;
 
         private LilManSprite lilMan;
         private YellowBirdSprite[] birds;
         private SpriteFont rubikiso;
         private CoinSprite[] coins;
         private SpriteFont skranji;
+        private Texture2D background;
+        private SoundEffect birdKill;
+        private Song backgroundMusic;
 
-        private int coinsCollected = 0;
         private int birdsCollected = 0;
 
         public Game()
@@ -23,29 +30,34 @@ namespace LilManGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            var screenFactory = new ScreenFactory();
+            Services.AddService(typeof(IScreenFactory), screenFactory);
+
+            _screenManager = new ScreenManager(this);
+            Components.Add(_screenManager);
+
+            AddInitialScreens();
+        }
+
+        private void AddInitialScreens()
+        {
+            var menuBackground = new BackgroundScreen();
+            var mainMenuScreen = new MainMenuScreen(menuBackground);
+            _screenManager.AddScreen(menuBackground, null);
+            _screenManager.AddScreen(mainMenuScreen, null);
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             System.Random random = new System.Random();
             lilMan = new LilManSprite();
             birds = new YellowBirdSprite[]
             {
-                new YellowBirdSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new YellowBirdSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new YellowBirdSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new YellowBirdSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height))
-            };
-            coins = new CoinSprite[]
-            {
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height)),
-                new CoinSprite(new Vector2((float)random.NextDouble() * GraphicsDevice.Viewport.Width, (float)random.NextDouble() * GraphicsDevice.Viewport.Height))
+                new YellowBirdSprite(new Vector2(graphics.PreferredBackBufferWidth * 0.4f, 0), Direction.Down),
+                new YellowBirdSprite(new Vector2(graphics.PreferredBackBufferWidth * 0.8f, 200), Direction.Left),
+                new YellowBirdSprite(new Vector2(graphics.PreferredBackBufferWidth * 0.2f, 200), Direction.Right),
+                new YellowBirdSprite(new Vector2(graphics.PreferredBackBufferWidth * 0.6f, 200), Direction.Up)
             };
             base.Initialize();
         }
@@ -53,21 +65,24 @@ namespace LilManGame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
             lilMan.LoadContent(Content);
             foreach (var bird in birds) bird.LoadContent(Content);
-            foreach (var coin in coins) coin.LoadContent(Content);
             rubikiso = Content.Load<SpriteFont>("rubikiso");
             skranji = Content.Load<SpriteFont>("skranji");
+            background = Content.Load<Texture2D>("background");
+            // Sound from Zapsplat.com
+            birdKill = Content.Load<SoundEffect>("birdkill");
+            // Pixelland by Kevin MacLeod | https://incompetech.com/
+            // Music promoted by https://www.chosic.com/free-music/all/
+            // Creative Commons CC BY 3.0
+            // https://creativecommons.org/licenses/by/3.0/
+            backgroundMusic = Content.Load<Song>("backgroundmusic");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(backgroundMusic);
         }
 
         protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Space))
-                Exit();
-
-            // TODO: Add your update logic here
+        {            
             lilMan.Update(gameTime);
             foreach (var bird in birds) bird.Update(gameTime);
             foreach (var bird in birds)
@@ -76,17 +91,10 @@ namespace LilManGame
                 {
                     bird.Collected = true;
                     birdsCollected++;
+                    birdKill.Play();
                 }
             }
-            foreach (var coin in coins)
-            {
-                if (!coin.Collected && coin.Bounds.CollidesWith(lilMan.Bounds))
-                {
-                    coin.Collected = true;
-                    coinsCollected++;
-                }
-            }
-
+   
             base.Update(gameTime);
         }
 
@@ -96,12 +104,10 @@ namespace LilManGame
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            spriteBatch.Draw(background,  new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), Color.White);
             lilMan.Draw(gameTime, spriteBatch);
             foreach (var bird in birds) bird.Draw(gameTime, spriteBatch);
-            foreach (var coin in coins) coin.Draw(gameTime, spriteBatch);
-            spriteBatch.DrawString(rubikiso, "Press SPACE to Exit The Game", new Vector2(30, 10), Color.White);
-            spriteBatch.DrawString(skranji, $"Coins Collected: {coinsCollected}", new Vector2(10, 100), Color.Gold);
-            spriteBatch.DrawString(skranji, $"Birds Collected: {birdsCollected}", new Vector2(10, 120), Color.Gold);
+            if (birdsCollected == 4) spriteBatch.DrawString(skranji, $"You Win!", new Vector2(250, 50), Color.Gold, 0, new Vector2(0, 0), 4, SpriteEffects.None, 0);
             spriteBatch.End();
 
             base.Draw(gameTime);

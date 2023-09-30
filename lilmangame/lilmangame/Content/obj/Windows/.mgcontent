@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/background.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/backgroundmusic.mp3</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/birdkill.wav</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/coin.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/lilman.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/rubikiso.spritefont</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/skranji.spritefont</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/yellowbirddown.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/yellowbirdmid.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/yellowbirdup.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

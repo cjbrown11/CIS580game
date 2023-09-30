@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\lilmangame",
-    "\\lilmangame\\lilmangame"
+    "\\lilmangame\\lilmangame",
+    "\\lilmangame\\lilmangame\\Content"
   ],
-  "SelectedNode": "\\lilmangame\\lilmangame\\Game.cs",
+  "SelectedNode": "\\lilmangame\\lilmangame.sln",
   "PreviewInSolutionExplorer": false
 }

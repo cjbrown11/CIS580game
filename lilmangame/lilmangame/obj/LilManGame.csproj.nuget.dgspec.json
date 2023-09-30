@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj": {}
+    "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj": {
+    "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
+        "projectUniqueName": "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
         "projectName": "LilManGame",
-        "projectPath": "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
+        "projectPath": "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\LilManGame.csproj",
         "packagesPath": "C:\\Users\\19139\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\19139\\Source\\Repos\\CIS580game\\lilmangame\\lilmangame\\obj\\",
+        "outputPath": "C:\\Users\\19139\\source\\repos\\CIS580game\\lilmangame\\lilmangame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\19139\\AppData\\Roaming\\NuGet\\NuGet.Config",
