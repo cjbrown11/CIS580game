@@ -88,3 +88,5 @@ C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-wi
 C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\birdkill.xnb
 C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\backgroundmusic.wma
 C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\backgroundmusic.xnb
+C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\drop.xnb
+C:\Users\19139\source\repos\CIS580game\lilmangame\lilmangame\bin\Debug\net6.0-windows\Content\birdwing.xnb

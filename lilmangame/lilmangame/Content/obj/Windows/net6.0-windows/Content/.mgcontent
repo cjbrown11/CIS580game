@@ -7,7 +7,9 @@
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/background.png</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/backgroundmusic.mp3</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/birdkill.wav</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/birdwing.png</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/coin.png</File>
+    <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/drop.png</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/lilman.png</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/rubikiso.spritefont</File>
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/skranji.spritefont</File>
@@ -16,6 +18,8 @@
     <File>C:/Users/19139/source/repos/CIS580game/lilmangame/lilmangame/Content/yellowbirdup.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
